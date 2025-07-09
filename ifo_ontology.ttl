@@ -417,11 +417,22 @@
 xsd:date rdf:type rdfs:Datatype .
 
 
+###  http://www.w3.org/2001/XMLSchema#gYear
+xsd:gYear rdf:type rdfs:Datatype .
+
+
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasCreated
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#belongsToCollection
+:belongsToCollection rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain :Garment ;
+                     rdfs:range :Collection .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasCreated
 :hasCreated rdf:type owl:ObjectProperty ;
             rdfs:domain :Stylist ;
             rdfs:range :Collection .
@@ -491,6 +502,73 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/dc/terms/valid
 <http://purl.org/dc/terms/valid> rdf:type owl:DatatypeProperty ;
                                  rdfs:subPropertyOf <http://purl.org/dc/terms/date> .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasBirthYear
+:hasBirthYear rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+              rdfs:range xsd:gYear .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasColor
+:hasColor rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Garment ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasMaterial
+:hasMaterial rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Garment ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasNationality
+:hasNationality rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Stylist ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasSeason
+:hasSeason rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :Collection ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasSize
+:hasSize rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Garment ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasStylePreference
+:hasStylePreference rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Stylist ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasTheme
+:hasTheme rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Collection ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasYear
+:hasYear rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:range xsd:gYear .
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:domain :Garment ;
+                    rdfs:range xsd:string .
 
 
 #################################################################
@@ -598,11 +676,15 @@ xsd:date rdf:type rdfs:Datatype .
 <http://purl.org/dc/terms/Standard> rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Collection
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Garment
+:Garment rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Collection
 :Collection rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Stylist
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Stylist
 :Stylist rdf:type owl:Class ;
          owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
 
