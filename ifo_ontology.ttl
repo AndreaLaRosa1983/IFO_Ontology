@@ -425,7 +425,42 @@ xsd:gYear rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#belongsToCollection
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :FashionShow ;
+             rdfs:range :Location .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#isInspiredByTrend
+:isInspiredByTrend rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Garment ;
+                   rdfs:range :fashionTrend .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#presentsCollection
+:presentsCollection rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain :FashionShow ;
+                    rdfs:range :Collection .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#walksInShow
+:walksInShow rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Model ;
+             rdfs:range :FashionShow .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#wearsGarment
+:wearsGarment rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Model ;
+              rdfs:range :Garment .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/belongsToCollection
 :belongsToCollection rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf owl:topObjectProperty ;
                      rdfs:domain :Garment ;
@@ -436,6 +471,10 @@ xsd:gYear rdf:type rdfs:Datatype .
 :hasCreated rdf:type owl:ObjectProperty ;
             rdfs:domain :Stylist ;
             rdfs:range :Collection .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:domain :FashionShow .
 
 
 #################################################################
@@ -504,63 +543,91 @@ xsd:gYear rdf:type rdfs:Datatype .
                                  rdfs:subPropertyOf <http://purl.org/dc/terms/date> .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasBirthYear
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasCity
+:hasCity rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Location ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasCountry
+:hasCountry rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Location ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasDate
+:hasDate rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :FashionShow ;
+         rdfs:range xsd:date .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#takePlaceIn
+:takePlaceIn rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :FashionShow ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasBirthYear
 :hasBirthYear rdf:type owl:DatatypeProperty ;
               rdfs:subPropertyOf owl:topDataProperty ;
               rdfs:domain <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
               rdfs:range xsd:gYear .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasColor
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasColor
 :hasColor rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :Garment ;
           rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasMaterial
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasMaterial
 :hasMaterial rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf owl:topDataProperty ;
              rdfs:domain :Garment ;
              rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasNationality
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasNationality
 :hasNationality rdf:type owl:DatatypeProperty ;
                 rdfs:subPropertyOf owl:topDataProperty ;
                 rdfs:domain :Stylist ;
                 rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasSeason
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasSeason
 :hasSeason rdf:type owl:DatatypeProperty ;
            rdfs:subPropertyOf owl:topDataProperty ;
            rdfs:domain :Collection ;
            rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasSize
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasSize
 :hasSize rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:domain :Garment ;
          rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasStylePreference
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasStylePreference
 :hasStylePreference rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf owl:topDataProperty ;
                     rdfs:domain :Stylist ;
                     rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasTheme
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasTheme
 :hasTheme rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf owl:topDataProperty ;
           rdfs:domain :Collection ;
           rdfs:range xsd:string .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#hasYear
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/hasYear
 :hasYear rdf:type owl:DatatypeProperty ;
          rdfs:subPropertyOf owl:topDataProperty ;
          rdfs:range xsd:gYear .
@@ -676,12 +743,30 @@ owl:topDataProperty rdfs:domain :Garment ;
 <http://purl.org/dc/terms/Standard> rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Garment
-:Garment rdf:type owl:Class .
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#FashionShow
+:FashionShow rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#Model
+:Model rdf:type owl:Class ;
+       owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#fashionTrend
+:fashionTrend rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 ###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Collection
 :Collection rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Garment
+:Garment rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Stylist
