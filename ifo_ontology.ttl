@@ -361,6 +361,10 @@
                                  rdfs:range rdfs:Literal .
 
 
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Datatypes
 #################################################################
@@ -751,7 +755,8 @@ owl:topDataProperty rdfs:domain :Garment ;
 
 
 ###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#ColorSeason
-:ColorSeason rdf:type owl:Class .
+:ColorSeason rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
 
 
 ###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/Collection
@@ -1258,6 +1263,68 @@ owl:topDataProperty rdfs:domain :Garment ;
 
 ###  http://purl.org/dc/terms/valid
 <http://purl.org/dc/terms/valid> rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_autumnSoft
+:colorseason_autumnSoft rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Autumn Soft"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_springWarm
+:colorseason_springWarm rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Spring Warm"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_springLight
+:colorseason_springLight rdf:type owl:NamedIndividual ,
+                                  :ColorSeason ;
+                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Spring Light"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_springBright
+:colorseason_springBright rdf:type owl:NamedIndividual ,
+                                   :ColorSeason ;
+                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Spring Bright"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_summerCool
+:colorseason_summerCool rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Summer Cool"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_summerLight
+:colorseason_summerLight rdf:type owl:NamedIndividual ,
+                                  :ColorSeason ;
+                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Summer Light"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_summerSoft
+:colorseason_summerSoft rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Summer Soft"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_autumnWarm
+:colorseason_autumnWarm rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Autumn Warm"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_autumnDeep
+:colorseason_autumnDeep rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Autumn Deep"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_winterCool
+:colorseason_winterCool rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Winter Cool"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_winterDeep
+:colorseason_winterDeep rdf:type owl:NamedIndividual ,
+                                 :ColorSeason ;
+                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Winter Deep"@en .
+
+###  http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#colorseason_winterBright
+:colorseason_winterBright rdf:type owl:NamedIndividual ,
+                                   :ColorSeason ;
+                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Winter Bright"@en .
+
 
 
 #################################################################
