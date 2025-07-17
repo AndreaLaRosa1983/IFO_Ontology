@@ -1,0 +1,1104 @@
+@prefix : <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/> .
+@prefix ifo: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#> .
+@prefix ns1: <http://purl.org/dc/dcam/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:domainIncludes a owl:AnnotationProperty .
+
+ns1:rangeIncludes a owl:AnnotationProperty .
+
+ns2:BibliographicResource a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Bibliographic Resource"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A book, article, or other documentary resource."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:Box a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "DCMI Box"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of regions in space defined by their geographic coordinates according to the DCMI Box Encoding Scheme."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-box/> .
+
+ns2:DCMIType a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "DCMI Type Vocabulary"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of classes specified by the DCMI Type Vocabulary, used to categorize the nature or genre of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://purl.org/dc/dcmitype/> .
+
+ns2:DDC a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "DDC"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of conceptual resources specified by the Dewey Decimal Classification."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.oclc.org/dewey/> .
+
+ns2:FileFormat a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "File Format"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A digital resource format."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:MediaType .
+
+ns2:IMT a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "IMT"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of media types specified by the Internet Assigned Numbers Authority."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.iana.org/assignments/media-types/> .
+
+ns2:ISO3166 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "ISO 3166"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of codes listed in ISO 3166-1 for the representation of names of countries."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://www.iso.org/obp/ui/#search> .
+
+ns2:ISO639-2 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "ISO 639-2"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The three-letter alphabetic codes listed in ISO639-2 for the representation of names of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://lcweb.loc.gov/standards/iso639-2/langhome.html> .
+
+ns2:ISO639-3 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "ISO 639-3"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The set of three-letter codes listed in ISO 639-3 for the representation of names of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.sil.org/iso639-3/> .
+
+ns2:LCC a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "LCC"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of conceptual resources specified by the Library of Congress Classification."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://lcweb.loc.gov/catdir/cpso/lcco/lcco.html> .
+
+ns2:LCSH a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "LCSH"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of labeled concepts specified by the Library of Congress Subject Headings."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:MESH a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "MeSH"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of labeled concepts specified by the Medical Subject Headings."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.nlm.nih.gov/mesh/meshhome.html> .
+
+ns2:NLM a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "NLM"@en ;
+    ns2:issued "2005-06-13"^^xsd:date ;
+    rdfs:comment "The set of conceptual resources specified by the National Library of Medicine Classification."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://wwwcf.nlm.nih.gov/class/> .
+
+ns2:Point a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "DCMI Point"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of points in space defined by their geographic coordinates according to the DCMI Point Encoding Scheme."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-point/> .
+
+ns2:RFC1766 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "RFC 1766"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of tags, constructed according to RFC 1766, for the identification of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.ietf.org/rfc/rfc1766.txt> .
+
+ns2:RFC3066 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "RFC 3066"@en ;
+    ns2:description "RFC 3066 has been obsoleted by RFC 4646."@en ;
+    ns2:issued "2002-07-13"^^xsd:date ;
+    rdfs:comment "The set of tags constructed according to RFC 3066 for the identification of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.ietf.org/rfc/rfc3066.txt> .
+
+ns2:RFC4646 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "RFC 4646"@en ;
+    ns2:description "RFC 4646 obsoletes RFC 3066."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The set of tags constructed according to RFC 4646 for the identification of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> .
+
+ns2:RFC5646 a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "RFC 5646"@en ;
+    ns2:description "RFC 5646 obsoletes RFC 4646."@en ;
+    ns2:issued "2010-10-11"^^xsd:date ;
+    rdfs:comment "The set of tags constructed according to RFC 5646 for the identification of languages."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.ietf.org/rfc/rfc5646.txt> .
+
+ns2:TGN a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "TGN"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of places specified by the Getty Thesaurus of Geographic Names."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.getty.edu/research/tools/vocabulary/tgn/index.html> .
+
+ns2:UDC a ns1:VocabularyEncodingScheme,
+        owl:NamedIndividual ;
+    rdfs:label "UDC"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of conceptual resources specified by the Universal Decimal Classification."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.udcc.org/> .
+
+ns2:URI a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "URI"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of identifiers constructed according to the generic syntax for Uniform Resource Identifiers as specified by the Internet Engineering Task Force."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.ietf.org/rfc/rfc3986.txt> .
+
+ns2:W3CDTF a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "W3C-DTF"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of dates and times constructed according to the W3C Date and Time Formats Specification."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <http://www.w3.org/TR/NOTE-datetime> .
+
+ns2:abstract a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Abstract"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A summary of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/description>,
+        ns2:description .
+
+ns2:accessRights a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Access Rights"@en ;
+    ns1:rangeIncludes ns2:RightsStatement ;
+    ns2:description "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en ;
+    ns2:issued "2003-02-15"^^xsd:date ;
+    rdfs:comment "Information about who access the resource or an indication of its security status."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/rights>,
+        ns2:rights .
+
+ns2:accrualMethod a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Accrual Method"@en ;
+    ns1:rangeIncludes ns2:MethodOfAccrual ;
+    ns2:description "Recommended practice is to use a value from the Collection Description Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)]."@en ;
+    ns2:issued "2005-06-13"^^xsd:date ;
+    rdfs:comment "The method by which items are added to a collection."@en ;
+    rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:accrualPeriodicity a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Accrual Periodicity"@en ;
+    ns1:rangeIncludes ns2:Frequency ;
+    ns2:description "Recommended practice is to use a value from the Collection Description Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)]."@en ;
+    ns2:issued "2005-06-13"^^xsd:date ;
+    rdfs:comment "The frequency with which items are added to a collection."@en ;
+    rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:accrualPolicy a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Accrual Policy"@en ;
+    ns1:rangeIncludes ns2:Policy ;
+    ns2:description "Recommended practice is to use a value from the Collection Description Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)]."@en ;
+    ns2:issued "2005-06-13"^^xsd:date ;
+    rdfs:comment "The policy governing the addition of items to a collection."@en ;
+    rdfs:domain <http://purl.org/dc/dcmitype/Collection> ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:alternative a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Alternative Title"@en ;
+    ns2:description "The distinction between titles and alternative titles is application-specific."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "An alternative name for the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/title>,
+        ns2:title .
+
+ns2:available a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Available"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Date that the resource became or will become available."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:bibliographicCitation a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Bibliographic Citation"@en ;
+    ns2:description "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."@en ;
+    ns2:issued "2003-02-15"^^xsd:date ;
+    rdfs:comment "A bibliographic reference for the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/identifier>,
+        ns2:identifier .
+
+ns2:conformsTo a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Conforms To"@en ;
+    ns1:rangeIncludes ns2:Standard ;
+    ns2:issued "2001-05-21"^^xsd:date ;
+    rdfs:comment "An established standard to which the described resource conforms."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:created a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Created"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Date of creation of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:creator a owl:NamedIndividual ;
+    rdfs:label "Creator"@en ;
+    ns1:rangeIncludes ns2:Agent ;
+    ns2:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An entity responsible for making the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/creator>,
+        ns2:contributor .
+
+ns2:dateAccepted a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Accepted"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a date of acceptance may be relevant are a thesis (accepted by a university department) or an article (accepted by a journal)."@en ;
+    ns2:issued "2002-07-13"^^xsd:date ;
+    rdfs:comment "Date of acceptance of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:dateCopyrighted a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Copyrighted"@en ;
+    ns2:description "Typically a year.  Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2002-07-13"^^xsd:date ;
+    rdfs:comment "Date of copyright of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:dateSubmitted a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Submitted"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty.  Examples of resources to which a 'Date Submitted' may be relevant include a thesis (submitted to a university department) or an article (submitted to a journal)."@en ;
+    ns2:issued "2002-07-13"^^xsd:date ;
+    rdfs:comment "Date of submission of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:educationLevel a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Audience Education Level"@en ;
+    ns1:rangeIncludes ns2:AgentClass ;
+    ns2:issued "2002-07-13"^^xsd:date ;
+    rdfs:comment "A class of agents, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf ns2:audience .
+
+ns2:extent a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Extent"@en ;
+    ns1:rangeIncludes ns2:SizeOrDuration ;
+    ns2:description "Recommended practice is to specify the file size in megabytes and duration in ISO 8601 format."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The size or duration of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/format>,
+        ns2:format .
+
+ns2:hasFormat a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Has Format"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Format Of."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is substantially the same as the pre-existing described resource, but in another format."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:hasPart a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Has Part"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:hasVersion a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Has Version"@en ;
+    ns2:description "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Is Version Of."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is a version, edition, or adaptation of the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:instructionalMethod a owl:NamedIndividual ;
+    rdfs:label "Instructional Method"@en ;
+    ns1:rangeIncludes ns2:MethodOfInstruction ;
+    ns2:description "Instructional Method typically includes ways of presenting instructional materials or conducting instructional activities, patterns of learner-to-learner and learner-to-instructor interactions, and mechanisms by which group and individual levels of learning are measured.  Instructional methods include all aspects of the instruction and learning processes from planning and implementation through evaluation and feedback."@en ;
+    ns2:issued "2005-06-13"^^xsd:date ;
+    rdfs:comment "A process, used to engender knowledge, attitudes and skills, that the described resource is designed to support."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:isFormatOf a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Format Of"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Has Format."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A pre-existing related resource that is substantially the same as the described resource, but in another format."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:isPartOf a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Part Of"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Has Part."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource in which the described resource is physically or logically included."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:isReferencedBy a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Referenced By"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of References."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:isReplacedBy a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Replaced By"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Replaces."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that supplants, displaces, or supersedes the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:isRequiredBy a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Required By"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Requires."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that requires the described resource to support its function, delivery, or coherence."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:isVersionOf a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Is Version Of"@en ;
+    ns2:description "Changes in version imply substantive changes in content rather than differences in format. This property is intended to be used with non-literal values. This property is an inverse property of Has Version."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource of which the described resource is a version, edition, or adaptation."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:issued a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Issued"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Date of formal issuance of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:language a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Language"@en ;
+    ns1:rangeIncludes ns2:LinguisticSystem ;
+    ns2:description "Recommended practice is to use either a non-literal value representing a language from a controlled vocabulary such as ISO 639-2 or ISO 639-3, or a literal value consisting of an IETF Best Current Practice 47 [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language tag."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A language of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/language> .
+
+ns2:license a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "License"@en ;
+    ns1:rangeIncludes ns2:LicenseDocument ;
+    ns2:description "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."@en ;
+    ns2:issued "2004-06-14"^^xsd:date ;
+    rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/rights>,
+        ns2:rights .
+
+ns2:mediator a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Mediator"@en ;
+    ns1:rangeIncludes ns2:AgentClass ;
+    ns2:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
+    ns2:issued "2001-05-21"^^xsd:date ;
+    rdfs:comment "An entity that mediates access to the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf ns2:audience .
+
+ns2:medium a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Medium"@en ;
+    ns1:domainIncludes ns2:PhysicalResource ;
+    ns1:rangeIncludes ns2:PhysicalMedium ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The material or physical carrier of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/format>,
+        ns2:format .
+
+ns2:modified a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Modified"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Date on which the resource was changed."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+ns2:provenance a owl:NamedIndividual ;
+    rdfs:label "Provenance"@en ;
+    ns1:rangeIncludes ns2:ProvenanceStatement ;
+    ns2:description "The statement may include a description of any changes successive custodians made to the resource."@en ;
+    ns2:issued "2004-09-20"^^xsd:date ;
+    rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:publisher a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Publisher"@en ;
+    ns1:rangeIncludes ns2:Agent ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An entity responsible for making the resource available."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/publisher> .
+
+ns2:references a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "References"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Referenced By."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is referenced, cited, or otherwise pointed to by the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:replaces a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Replaces"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Replaced By."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is supplanted, displaced, or superseded by the described resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:requires a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Requires"@en ;
+    ns2:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Required By."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A related resource that is required by the described resource to support its function, delivery, or coherence."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation>,
+        ns2:relation .
+
+ns2:rightsHolder a owl:NamedIndividual ;
+    rdfs:label "Rights Holder"@en ;
+    ns1:rangeIncludes ns2:Agent ;
+    ns2:description "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."@en ;
+    ns2:issued "2004-06-14"^^xsd:date ;
+    rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:source a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Source"@en ;
+    ns2:description "This property is intended to be used with non-literal values. The described resource may be derived from the related resource in whole or in part. Best practice is to identify the related resource by means of a URI or a string conforming to a formal identification system."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A related resource from which the described resource is derived."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/source>,
+        ns2:relation .
+
+ns2:spatial a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Spatial Coverage"@en ;
+    ns1:rangeIncludes ns2:Location ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Spatial characteristics of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/coverage>,
+        ns2:coverage .
+
+ns2:subject a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Subject"@en ;
+    ns2:description "Recommended practice is to refer to the subject with a URI. If this is not possible or feasible, a literal value that identifies the subject may be provided. Both should preferably refer to a subject in a controlled vocabulary."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A topic of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/subject> .
+
+ns2:tableOfContents a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Table Of Contents"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "A list of subunits of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/description>,
+        ns2:description .
+
+ns2:temporal a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Temporal Coverage"@en ;
+    ns1:rangeIncludes ns2:PeriodOfTime ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Temporal characteristics of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/coverage>,
+        ns2:coverage .
+
+ns2:type a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Type"@en ;
+    ns2:description "Recommended practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)]. To describe the file format, physical medium, or dimensions of the resource, use the property Format."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The nature or genre of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/type> .
+
+ns2:valid a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date Valid"@en ;
+    ns2:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "Date (often a range) of validity of a resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date>,
+        ns2:date .
+
+<http://www.semanticweb.org/andrea/ontologies/2025/5/IFO> a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        <http://xmlns.com/foaf/0.1/> .
+
+ifo:autumn_season a ifo:ColorSeason ;
+    rdfs:label "Autumn Season (armocromia)"@en ;
+    ifo:hasContrast "deep" ;
+    ifo:hasTone "warm" .
+
+ifo:hasContrast a owl:DatatypeProperty ;
+    rdfs:domain ifo:ColorSeason ;
+    rdfs:range xsd:string .
+
+ifo:hasTone a owl:DatatypeProperty ;
+    rdfs:domain ifo:ColorSeason ;
+    rdfs:range xsd:string .
+
+ifo:isRecommendedForSeason a owl:ObjectProperty ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:ColorSeason .
+
+ifo:spring_season a ifo:ColorSeason ;
+    rdfs:label "Spring Season (armocromia)"@en ;
+    ifo:hasContrast "low" ;
+    ifo:hasTone "warm" .
+
+ifo:summer_season a ifo:ColorSeason ;
+    rdfs:label "Summer Season (armocromia)"@en ;
+    ifo:hasContrast "soft" ;
+    ifo:hasTone "cool" .
+
+ifo:winter_season a ifo:ColorSeason ;
+    rdfs:label "Winter Season (armocromia)"@en ;
+    ifo:hasContrast "high" ;
+    ifo:hasTone "cool" .
+
+:belongsToCollection a owl:ObjectProperty ;
+    rdfs:domain :Garment ;
+    rdfs:range :Collection ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+:hasBirthYear a owl:DatatypeProperty ;
+    rdfs:domain <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+    rdfs:range xsd:gYear ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasCity a owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasColor a owl:DatatypeProperty ;
+    rdfs:domain :Garment ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasCountry a owl:DatatypeProperty ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasCreated a owl:ObjectProperty ;
+    rdfs:domain :Stylist ;
+    rdfs:range :Collection .
+
+:hasDate a owl:DatatypeProperty ;
+    rdfs:domain :FashionShow ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasLocation a owl:ObjectProperty ;
+    rdfs:domain :FashionShow ;
+    rdfs:range :Location ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+:hasMaterial a owl:DatatypeProperty ;
+    rdfs:domain :Garment ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasNationality a owl:DatatypeProperty ;
+    rdfs:domain :Stylist ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasSeason a owl:DatatypeProperty ;
+    rdfs:domain :Collection ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasSize a owl:DatatypeProperty ;
+    rdfs:domain :Garment ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasStylePreference a owl:DatatypeProperty ;
+    rdfs:domain :Stylist ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasTheme a owl:DatatypeProperty ;
+    rdfs:domain :Collection ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasYear a owl:DatatypeProperty ;
+    rdfs:range xsd:gYear ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:isInspiredByTrend a owl:ObjectProperty ;
+    rdfs:domain :Garment ;
+    rdfs:range :fashionTrend ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+:presentsCollection a owl:ObjectProperty ;
+    rdfs:domain :FashionShow ;
+    rdfs:range :Collection ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+:takePlaceIn a owl:DatatypeProperty ;
+    rdfs:domain :FashionShow ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:walksInShow a owl:ObjectProperty ;
+    rdfs:domain :Model ;
+    rdfs:range :FashionShow ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+:wearsGarment a owl:ObjectProperty ;
+    rdfs:domain :Model ;
+    rdfs:range :Garment ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+<http://purl.org/dc/elements/1.1/contributor> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/creator> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/language> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/publisher> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/source> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/subject> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/type> a owl:AnnotationProperty .
+
+ns2:Frequency a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Frequency"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A rate at which something recurs."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:Jurisdiction a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Jurisdiction"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The extent or range of judicial, law enforcement, or other authority."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:LocationPeriodOrJurisdiction .
+
+ns2:LicenseDocument a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "License Document"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:RightsStatement .
+
+ns2:LinguisticSystem a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Linguistic System"@en ;
+    ns2:description "Written, spoken, sign, and computer languages are linguistic systems."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A system of signs, symbols, sounds, gestures, or rules used in communication."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:MethodOfAccrual a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Method of Accrual"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A method by which resources are added to a collection."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:MethodOfInstruction a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Method of Instruction"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A process that is used to engender knowledge, attitudes, and skills."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:Period a rdfs:Datatype,
+        owl:NamedIndividual ;
+    rdfs:label "DCMI Period"@en ;
+    ns2:issued "2000-07-11"^^xsd:date ;
+    rdfs:comment "The set of time intervals defined by their limits according to the DCMI Period Encoding Scheme."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:seeAlso <https://www.dublincore.org/specifications/dublin-core/dcmi-period/> .
+
+ns2:PeriodOfTime a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Period of Time"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An interval of time that is named or defined by its start and end dates."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:LocationPeriodOrJurisdiction .
+
+ns2:PhysicalMedium a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Physical Medium"@en ;
+    ns2:description "Examples include paper, canvas, or DVD."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A physical material or carrier."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:MediaType .
+
+ns2:PhysicalResource a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Physical Resource"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A material thing."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:Policy a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Policy"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:ProvenanceStatement a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Provenance Statement"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "Any changes in ownership and custody of a resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:SizeOrDuration a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Size or Duration"@en ;
+    ns2:description "Examples include a number of pages, a specification of length, width, and breadth, or a period in hours, minutes, and seconds."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A dimension or extent, or a time taken to play or execute."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:MediaTypeOrExtent .
+
+ns2:Standard a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Standard"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A reference point against which other things can be evaluated or compared."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:contributor a owl:NamedIndividual ;
+    rdfs:label "Contributor"@en ;
+    ns1:rangeIncludes ns2:Agent ;
+    ns2:description "The guidelines for using names of persons or organizations as creators apply to contributors."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/contributor> .
+
+ns2:identifier a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Identifier"@en ;
+    ns2:description "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/identifier> .
+
+ns2:title a owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Title"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A name given to the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/title> .
+
+:fashionTrend a owl:Class ;
+    rdfs:subClassOf <http://www.w3.org/2004/02/skos/core#Concept> .
+
+xsd:date a rdfs:Datatype .
+
+<http://purl.org/dc/elements/1.1/identifier> a owl:AnnotationProperty .
+
+ns2:Location a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Location"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A spatial region or named place."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:LocationPeriodOrJurisdiction .
+
+ns2:MediaTypeOrExtent a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Media Type or Extent"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A media type or extent."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:audience a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Audience"@en ;
+    ns1:rangeIncludes ns2:AgentClass ;
+    ns2:description "Recommended practice is to use this property with non-literal values from a vocabulary of audience types."@en ;
+    ns2:issued "2001-05-21"^^xsd:date ;
+    rdfs:comment "A class of agents for whom the resource is intended or useful."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:coverage a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Coverage"@en ;
+    ns1:rangeIncludes ns2:Jurisdiction,
+        ns2:Location,
+        ns2:Period ;
+    ns2:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names [[TGN](https://www.getty.edu/research/tools/vocabulary/tgn/index.html)]. Where appropriate, named places or time periods may be used in preference to numeric identifiers such as sets of coordinates or date ranges.  Because coverage is so broadly defined, it is preferable to use the more specific subproperties Temporal Coverage and Spatial Coverage."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/coverage> .
+
+ns2:description a owl:NamedIndividual ;
+    rdfs:label "Description"@en ;
+    ns2:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An account of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/description> .
+
+ns2:format a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Format"@en ;
+    ns1:rangeIncludes ns2:Extent,
+        ns2:MediaType ;
+    ns2:description "Recommended practice is to use a controlled vocabulary where available. For example, for file formats one could use the list of Internet Media Types [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples of dimensions include size and duration."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/format> .
+
+ns2:rights a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Rights"@en ;
+    ns1:rangeIncludes ns2:RightsStatement ;
+    ns2:description "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.  Recommended practice is to refer to a rights statement with a URI.  If this is not possible or feasible, a literal value (name, label, or short text) may be provided."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "Information about rights held in and over the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/rights> .
+
+:Model a owl:Class ;
+    owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+
+xsd:gYear a rdfs:Datatype .
+
+<http://purl.org/dc/elements/1.1/coverage> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/format> a owl:AnnotationProperty .
+
+<http://purl.org/dc/elements/1.1/rights> a owl:AnnotationProperty .
+
+ns2:LocationPeriodOrJurisdiction a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Location, Period, or Jurisdiction"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A location, period of time, or jurisdiction."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:MediaType a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Media Type"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A file format or physical medium."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf ns2:MediaTypeOrExtent .
+
+ns2:RightsStatement a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Rights Statement"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy ns2: .
+
+:Location a owl:Class .
+
+:Stylist a owl:Class ;
+    owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+
+ns2:Agent a ns2:AgentClass,
+        owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Agent"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A resource that acts or has the power to act."@en ;
+    rdfs:isDefinedBy ns2: .
+
+ns2:AgentClass a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "Agent Class"@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A group of agents."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subClassOf rdfs:Class .
+
+:Collection a owl:Class .
+
+:FashionShow a owl:Class .
+
+owl:topObjectProperty rdfs:domain :FashionShow .
+
+ifo:ColorSeason a owl:Class ;
+    rdfs:label "Color Season (armocromia)"@en .
+
+:Garment a owl:Class .
+
+ns2:date a owl:AnnotationProperty,
+        owl:DatatypeProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Date"@en ;
+    ns2:description "Date may be used to express temporal information at any level of granularity.  Recommended practice is to express the date, date/time, or period of time according to ISO 8601-1 [[ISO 8601-1](https://www.iso.org/iso-8601-date-and-time-format.html)] or a published profile of the ISO standard, such as the W3C Note on Date and Time Formats [[W3CDTF](https://www.w3.org/TR/NOTE-datetime)] or the Extended Date/Time Format Specification [[EDTF](http://www.loc.gov/standards/datetime/)].  If the full date is unknown, month and year (YYYY-MM) or just year (YYYY) may be used. Date ranges may be specified using ISO 8601 period of time specification in which start and end dates are separated by a '/' (slash) character.  Either the start or end date may be missing."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/date> .
+
+ns1:VocabularyEncodingScheme a owl:Class .
+
+owl:topDataProperty rdfs:domain :Garment ;
+    rdfs:range xsd:string .
+
+<http://purl.org/dc/elements/1.1/relation> a owl:AnnotationProperty .
+
+ns2:relation a owl:AnnotationProperty,
+        owl:NamedIndividual ;
+    rdfs:label "Relation"@en ;
+    ns2:description "Recommended practice is to identify the related resource by means of a URI.  If this is not possible or feasible, a string conforming to a formal identification system may be provided."@en ;
+    ns2:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "A related resource."@en ;
+    rdfs:isDefinedBy ns2: ;
+    rdfs:subPropertyOf <http://purl.org/dc/elements/1.1/relation> .
+
+ns2: a owl:NamedIndividual ;
+    ns2:modified "2012-06-14"^^xsd:date ;
+    ns2:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
+    ns2:title "DCMI Metadata Terms - other"@en .
+
