@@ -2,7 +2,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix ifo: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -54,16 +53,16 @@
     owl:versionInfo "v.1.0.0" .
 
 ifo:accessory02 a ifo:Accessory ;
-    rdfs:label "accessory example 2" .
+    rdfs:label "accessory example 2"@en .
 
 ifo:bag02 a ifo:Bag ;
-    rdfs:label "bag example 2" .
+    rdfs:label "bag example 2"@en .
 
 ifo:brand02 a ifo:Brand ;
-    rdfs:label "brand example 2" .
+    rdfs:label "brand example 2"@en .
 
 ifo:colorSeason02 a ifo:ColorSeason ;
-    rdfs:label "colorSeason example 2" .
+    rdfs:label "colorSeason example 2"@en .
 
 ifo:colorseason_autumnDeep a ifo:ColorSeason,
         owl:NamedIndividual ;
@@ -126,7 +125,7 @@ ifo:colorseason_winterDeep a ifo:ColorSeason,
     skos:prefLabel "Winter Deep"@en .
 
 ifo:designer02 a ifo:Designer ;
-    rdfs:label "designer example 2" .
+    rdfs:label "designer example 2"@en .
 
 ifo:endDate a owl:DatatypeProperty ;
     rdfs:label "end date"@en ;
@@ -136,43 +135,37 @@ ifo:endDate a owl:DatatypeProperty ;
     skos:definition "A datatypeproperty that links a event to a http://www.w3.org/2001/xmlschema#date, capturing the 'end date' relationship."@en .
 
 ifo:event01 a ifo:Event ;
-    rdfs:label "event example 1" .
+    rdfs:label "event example 1"@en .
 
 ifo:event02 a ifo:Event ;
-    rdfs:label "event example 2" .
+    rdfs:label "event example 2"@en .
 
 ifo:fabric02 a ifo:Fabric ;
-    rdfs:label "fabric example 2" .
+    rdfs:label "fabric example 2"@en .
 
 ifo:fashionShow02 a ifo:FashionShow ;
-    rdfs:label "fashionShow example 2" .
+    rdfs:label "fashionShow example 2"@en .
 
 ifo:fashionTrend01 a ifo:FashionTrend ;
-    rdfs:label "fashionTrend example 1" .
+    rdfs:label "fashionTrend example 1"@en .
 
 ifo:fashionTrend02 a ifo:FashionTrend ;
-    rdfs:label "fashionTrend example 2" .
+    rdfs:label "fashionTrend example 2"@en .
 
 ifo:fashionWeekShow01 a ifo:FashionWeekShow ;
-    rdfs:label "fashionWeekShow example 1" .
+    rdfs:label "fashionWeekShow example 1"@en .
 
 ifo:fashionWeekShow02 a ifo:FashionWeekShow ;
-    rdfs:label "fashionWeekShow example 2" .
+    rdfs:label "fashionWeekShow example 2"@en .
 
 ifo:fitSpecification02 a ifo:FitSpecification ;
-    rdfs:label "fitSpecification example 2" .
+    rdfs:label "fitSpecification example 2"@en .
 
 ifo:garment02 a ifo:Garment ;
-    rdfs:label "garment example 2" .
+    rdfs:label "garment example 2"@en .
 
-ifo:hasAccessory a owl:ObjectProperty ;
-    rdfs:label "has accessory"@en ;
-    rdfs:comment "Links a garment to an accessory styled or paired with it."@en ;
-    rdfs:domain ifo:Garment ;
-    rdfs:range ifo:Accessory ;
-    skos:definition "A objectproperty that links a garment to a accessory, capturing the 'has accessory' relationship."@en .
-
-ifo:hasBirthYear a owl:DatatypeProperty ;
+ifo:hasBirthYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
     rdfs:label "Has birth year"@en ;
     rdfs:comment "Year of birth associated with a person such as a model or stylist."@en ;
     rdfs:domain foaf:Person ;
@@ -180,12 +173,11 @@ ifo:hasBirthYear a owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
     skos:definition "A datatypeproperty that links a http://www.w3.org/2000/10/swap/pim/contact#person to a http://www.w3.org/2001/xmlschema#gyear, capturing the 'has birth year' relationship."@en .
 
-ifo:hasFit a owl:ObjectProperty ;
-    rdfs:label "has fit"@en ;
-    rdfs:comment "Links a garment to its fit specification."@en ;
-    rdfs:domain ifo:Garment ;
-    rdfs:range ifo:FitSpecification ;
-    skos:definition "A objectproperty that links a garment to a fit specification, capturing the 'has fit' relationship."@en .
+ifo:hasDesigner a owl:ObjectProperty ;
+    rdfs:label "has designer"@en ;
+    rdfs:comment "Links a collection or garment to the designer who created it."@en ;
+    rdfs:domain ifo:Collection ;
+    rdfs:range ifo:Designer .
 
 ifo:hasMaterial a owl:DatatypeProperty ;
     rdfs:label "Has material"@en ;
@@ -203,28 +195,6 @@ ifo:hasNationality a owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
     skos:definition "A datatypeproperty that links a stylist to a http://www.w3.org/2001/xmlschema#string, capturing the 'has nationality' relationship."@en .
 
-ifo:hasOriginCountry a owl:ObjectProperty ;
-    rdfs:label "has origin country"@en ;
-    rdfs:comment "Indicates the country in which an item was manufactured."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Garment or Accessory"@en ;
-            rdfs:comment "A garment or accessory concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Garment ifo:Accessory ) ;
-            skos:definition "A garment or accessory concept in the fashion domain."@en ] ;
-    rdfs:range <http://schema.org/Country> ;
-    skos:definition "A objectproperty that links a garment or accessory to a http://schema.org/country, capturing the 'has origin country' relationship."@en .
-
-ifo:hasPattern a owl:ObjectProperty ;
-    rdfs:label "has pattern"@en ;
-    rdfs:comment "Specifies the pattern applied to the garment or accessory."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Garment or Accessory"@en ;
-            rdfs:comment "A garment or accessory concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Garment ifo:Accessory ) ;
-            skos:definition "A garment or accessory concept in the fashion domain."@en ] ;
-    rdfs:range ifo:Pattern ;
-    skos:definition "A objectproperty that links a garment or accessory to a pattern, capturing the 'has pattern' relationship."@en .
-
 ifo:hasStylePreference a owl:DatatypeProperty ;
     rdfs:label "Has style preference"@en ;
     rdfs:comment "Preferred style indicated by a stylist or model."@en ;
@@ -240,17 +210,6 @@ ifo:hasSuitableGarment a owl:ObjectProperty ;
     rdfs:range ifo:Garment ;
     owl:inverseOf ifo:isSuitableForSeason ;
     skos:definition "A objectproperty that links a color season to a garment, capturing the 'has suitable garment' relationship."@en .
-
-ifo:hasSustainabilityFeature a owl:ObjectProperty ;
-    rdfs:label "has sustainability feature"@en ;
-    rdfs:comment "Associates a fashion item with a sustainability characteristic."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Garment, Accessory or Collection"@en ;
-            rdfs:comment "A garment, accessory or collection concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Garment ifo:Accessory ifo:Collection ) ;
-            skos:definition "A garment, accessory or collection concept in the fashion domain."@en ] ;
-    rdfs:range ifo:SustainabilityFeature ;
-    skos:definition "A objectproperty that links a garment, accessory or collection to a sustainability feature, capturing the 'has sustainability feature' relationship."@en .
 
 ifo:hasTheme a owl:DatatypeProperty ;
     rdfs:label "Has theme"@en ;
@@ -268,13 +227,6 @@ ifo:hasYear a owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
     skos:definition "A datatypeproperty that links a collection to a http://www.w3.org/2001/xmlschema#gyear, capturing the 'has year' relationship."@en .
 
-ifo:heldInCity a owl:ObjectProperty ;
-    rdfs:label "held in city"@en ;
-    rdfs:comment "City where an event is held."@en ;
-    rdfs:domain ifo:Event ;
-    rdfs:range ifo:Location ;
-    skos:definition "A objectproperty that links a event to a location, capturing the 'held in city' relationship."@en .
-
 ifo:includesAccessory a owl:ObjectProperty ;
     rdfs:label "includes accessory"@en ;
     rdfs:comment "Links a collection to accessories that are part of it."@en ;
@@ -290,6 +242,12 @@ ifo:inspires a owl:ObjectProperty ;
     rdfs:range ifo:Garment ;
     owl:inverseOf ifo:isInspiredByTrend ;
     skos:definition "A objectproperty that links a fashion trend to a garment, capturing the 'inspires' relationship."@en .
+
+ifo:isDesignerOf a owl:ObjectProperty ;
+    rdfs:label "is designer of"@en ;
+    rdfs:comment "Inverse of hasDesigner."@en ;
+    rdfs:domain ifo:Designer ;
+    rdfs:range ifo:Collection .
 
 ifo:isLocationOf a owl:ObjectProperty ;
     rdfs:label "is location of"@en ;
@@ -316,25 +274,37 @@ ifo:isWornBy a owl:ObjectProperty ;
     skos:definition "A objectproperty that links a garment to a model, capturing the 'is worn by' relationship."@en .
 
 ifo:location02 a ifo:Location ;
-    rdfs:label "location example 2" .
+    rdfs:label "location example 2"@en .
 
 ifo:model02 a ifo:Model ;
-    rdfs:label "model example 2" .
+    rdfs:label "model example 2"@en .
 
 ifo:pattern02 a ifo:Pattern ;
-    rdfs:label "pattern example 2" .
+    rdfs:label "pattern example 2"@en .
+
+ifo:producedBy a owl:ObjectProperty ;
+    rdfs:label "produced by"@en ;
+    rdfs:comment "Associates a collection, garment or accessory with the brand that produced it."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:Brand .
+
+ifo:produces a owl:ObjectProperty ;
+    rdfs:label "produces"@en ;
+    rdfs:comment "Inverse of producedBy."@en ;
+    rdfs:domain ifo:Brand ;
+    rdfs:range ifo:Garment .
 
 ifo:shoe02 a ifo:Shoe ;
-    rdfs:label "shoe example 2" .
+    rdfs:label "shoe example 2"@en .
 
 ifo:showroom02 a ifo:Showroom ;
-    rdfs:label "showroom example 2" .
+    rdfs:label "showroom example 2"@en .
 
 ifo:sizeSpecification01 a ifo:SizeSpecification ;
-    rdfs:label "sizeSpecification example 1" .
+    rdfs:label "sizeSpecification example 1"@en .
 
 ifo:sizeSpecification02 a ifo:SizeSpecification ;
-    rdfs:label "sizeSpecification example 2" .
+    rdfs:label "sizeSpecification example 2"@en .
 
 ifo:startDate a owl:DatatypeProperty ;
     rdfs:label "start date"@en ;
@@ -344,40 +314,48 @@ ifo:startDate a owl:DatatypeProperty ;
     skos:definition "A datatypeproperty that links a event to a http://www.w3.org/2001/xmlschema#date, capturing the 'start date' relationship."@en .
 
 ifo:stylist01 a ifo:Stylist ;
-    rdfs:label "stylist example 1" .
+    rdfs:label "stylist example 1"@en .
 
 ifo:stylist02 a ifo:Stylist ;
-    rdfs:label "stylist example 2" .
+    rdfs:label "stylist example 2"@en .
 
 ifo:sustainabilityFeature02 a ifo:SustainabilityFeature ;
-    rdfs:label "sustainabilityFeature example 2" .
+    rdfs:label "sustainabilityFeature example 2"@en .
 
 ifo:trunkShow02 a ifo:TrunkShow ;
-    rdfs:label "trunkShow example 2" .
+    rdfs:label "trunkShow example 2"@en .
 
 skos:prefLabel a owl:AnnotationProperty .
 
 ifo:bag01 a ifo:Bag,
         ifo:Garment ;
-    rdfs:label "bag example 1" ;
+    rdfs:label "bag example 1"@en ;
     ifo:producedBy ifo:brand01 .
 
 ifo:collection02 a ifo:Collection ;
-    rdfs:label "collection example 2" .
+    rdfs:label "collection example 2"@en .
 
 ifo:colorSeason01 a ifo:ColorSeason ;
-    rdfs:label "colorSeason example 1" .
+    rdfs:label "colorSeason example 1"@en .
 
 ifo:designer01 a ifo:Designer ;
-    rdfs:label "designer example 1" ;
+    rdfs:label "designer example 1"@en ;
     ifo:isDesignerOf ifo:brand01 .
 
 ifo:fabric01 a ifo:Fabric ;
-    rdfs:label "fabric example 1" ;
+    rdfs:label "fabric example 1"@en ;
     ifo:hasSustainabilityFeature ifo:sustainabilityFeature01 .
 
 ifo:fitSpecification01 a ifo:FitSpecification ;
-    rdfs:label "fitSpecification example 1" .
+    rdfs:label "fitSpecification example 1"@en .
+
+ifo:hasAccessory a owl:ObjectProperty ;
+    rdfs:label "has accessory"@en ;
+    rdfs:comment "Links a garment to an accessory styled or paired with it."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:Accessory ;
+    owl:inverseOf ifo:isAccessoryOf ;
+    skos:definition "A objectproperty that links a garment to a accessory, capturing the 'has accessory' relationship."@en .
 
 ifo:hasColor a owl:DatatypeProperty ;
     rdfs:label "Has color"@en ;
@@ -402,17 +380,13 @@ ifo:hasDate a owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
     skos:definition "A datatypeproperty that links a fashion show to a http://www.w3.org/2001/xmlschema#date, capturing the 'has date' relationship."@en .
 
-ifo:hasDesigner a owl:ObjectProperty ;
-    rdfs:label "has designer"@en ;
-    rdfs:comment "Links a collection or garment to the designer who created it."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Collection or Garment"@en ;
-            rdfs:comment "A collection or garment concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Collection ifo:Garment ) ;
-            skos:definition "A collection or garment concept in the fashion domain."@en ] ;
-    rdfs:range ifo:Designer ;
-    owl:inverseOf ifo:isDesignerOf ;
-    skos:definition "A objectproperty that links a collection or garment to a designer, capturing the 'has designer' relationship."@en .
+ifo:hasFit a owl:ObjectProperty ;
+    rdfs:label "has fit"@en ;
+    rdfs:comment "Links a garment to its fit specification."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:FitSpecification ;
+    owl:inverseOf ifo:isFitFor ;
+    skos:definition "A objectproperty that links a garment to a fit specification, capturing the 'has fit' relationship."@en .
 
 ifo:hasModel a owl:ObjectProperty ;
     rdfs:label "has model"@en ;
@@ -421,6 +395,20 @@ ifo:hasModel a owl:ObjectProperty ;
     rdfs:range ifo:Model ;
     owl:inverseOf ifo:walksInShow ;
     skos:definition "A objectproperty that links a fashion show to a model, capturing the 'has model' relationship."@en .
+
+ifo:hasOriginCountry a owl:ObjectProperty ;
+    rdfs:label "has origin country"@en ;
+    rdfs:comment "Indicates the country in which an item was manufactured."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:Location ;
+    owl:inverseOf ifo:isCountryOfOriginFor .
+
+ifo:hasPattern a owl:ObjectProperty ;
+    rdfs:label "has pattern"@en ;
+    rdfs:comment "Specifies the pattern applied to the garment or accessory."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:Pattern ;
+    owl:inverseOf ifo:isPatternOf .
 
 ifo:hasSeason a owl:DatatypeProperty ;
     rdfs:label "Has season"@en ;
@@ -440,6 +428,28 @@ ifo:hasSize a owl:DatatypeProperty ;
     rdfs:subPropertyOf owl:topDataProperty ;
     skos:definition "A datatypeproperty that links a garment to a http://www.w3.org/2001/xmlschema#string, capturing the 'has size' relationship."@en .
 
+ifo:hasSustainabilityFeature a owl:ObjectProperty ;
+    rdfs:label "has sustainability feature"@en ;
+    rdfs:comment "Associates a fashion item with a sustainability characteristic."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range ifo:SustainabilityFeature ;
+    owl:inverseOf ifo:isSustainabilityFeatureOf .
+
+ifo:heldInCity a owl:ObjectProperty ;
+    rdfs:label "held in city"@en ;
+    rdfs:comment "City where an event is held."@en ;
+    rdfs:domain ifo:Event ;
+    rdfs:range ifo:Location ;
+    owl:inverseOf ifo:hostsEvent ;
+    skos:definition "A objectproperty that links a event to a location, capturing the 'held in city' relationship."@en .
+
+ifo:hostsEvent a owl:ObjectProperty ;
+    rdfs:label "hostsEvent"@en ;
+    rdfs:comment "Inverse of heldInCity."@en ;
+    rdfs:domain ifo:City ;
+    rdfs:range ifo:Event ;
+    owl:inverseOf ifo:heldInCity .
+
 ifo:includesGarment a owl:ObjectProperty ;
     rdfs:label "includes garment"@en ;
     rdfs:comment "Inverse of belongsToCollection: links a collection to the garments that belong to it."@en ;
@@ -447,6 +457,20 @@ ifo:includesGarment a owl:ObjectProperty ;
     rdfs:range ifo:Garment ;
     owl:inverseOf ifo:belongsToCollection ;
     skos:definition "A objectproperty that links a collection to a garment, capturing the 'includes garment' relationship."@en .
+
+ifo:isAccessoryOf a owl:ObjectProperty ;
+    rdfs:label "Is AccessoryOf"@en ;
+    rdfs:comment "Inverse of hasAccessory."@en ;
+    rdfs:domain ifo:Accessory ;
+    rdfs:range ifo:Garment ;
+    owl:inverseOf ifo:hasAccessory .
+
+ifo:isCountryOfOriginFor a owl:ObjectProperty ;
+    rdfs:label "Is CountryOfOriginFor"@en ;
+    rdfs:comment "Inverse of hasOriginCountry."@en ;
+    rdfs:domain ifo:Country ;
+    rdfs:range ifo:Item ;
+    owl:inverseOf ifo:hasOriginCountry .
 
 ifo:isCreatedBy a owl:ObjectProperty ;
     rdfs:label "is created by"@en ;
@@ -456,17 +480,18 @@ ifo:isCreatedBy a owl:ObjectProperty ;
     owl:inverseOf ifo:hasCreated ;
     skos:definition "A objectproperty that links a collection to a stylist, capturing the 'is created by' relationship."@en .
 
-ifo:isDesignerOf a owl:ObjectProperty ;
-    rdfs:label "is designer of"@en ;
-    rdfs:comment "Inverse of hasDesigner."@en ;
-    rdfs:domain ifo:Designer ;
-    rdfs:range [ a owl:Class ;
-            rdfs:label "Collection or Garment"@en ;
-            rdfs:comment "A collection or garment concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Collection ifo:Garment ) ;
-            skos:definition "A collection or garment concept in the fashion domain."@en ] ;
-    owl:inverseOf ifo:hasDesigner ;
-    skos:definition "A objectproperty that links a designer to a collection or garment, capturing the 'is designer of' relationship."@en .
+ifo:isFabricOf a owl:ObjectProperty ;
+    rdfs:label "Is FabricOf"@en ;
+    rdfs:comment "Inverse of madeOfFabric."@en ;
+    rdfs:domain ifo:Fabric ;
+    rdfs:range ifo:Garment .
+
+ifo:isFitFor a owl:ObjectProperty ;
+    rdfs:label "Is FitFor"@en ;
+    rdfs:comment "Inverse of hasFit."@en ;
+    rdfs:domain ifo:FitSpecification ;
+    rdfs:range ifo:Garment ;
+    owl:inverseOf ifo:hasFit .
 
 ifo:isInspiredByTrend a owl:ObjectProperty ;
     rdfs:label "Is inspired by trend"@en ;
@@ -476,6 +501,20 @@ ifo:isInspiredByTrend a owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
     skos:definition "A objectproperty that links a garment to a fashion trend, capturing the 'is inspired by trend' relationship."@en .
 
+ifo:isPatternOf a owl:ObjectProperty ;
+    rdfs:label "Is PatternOf"@en ;
+    rdfs:comment "Inverse of hasPattern."@en ;
+    rdfs:domain ifo:Pattern ;
+    rdfs:range ifo:Garment ;
+    owl:inverseOf ifo:hasPattern .
+
+ifo:isShowcasedAt a owl:ObjectProperty ;
+    rdfs:label "Is ShowcasedAt"@en ;
+    rdfs:comment "Inverse of showcasesCollection."@en ;
+    rdfs:domain ifo:Collection ;
+    rdfs:range ifo:FashionShow ;
+    owl:inverseOf ifo:showcasesCollection .
+
 ifo:isSuitableForSeason a owl:ObjectProperty ;
     rdfs:label "Is suitable for season"@en ;
     rdfs:comment "States that an item or collection is appropriate for a given color season."@en ;
@@ -484,67 +523,41 @@ ifo:isSuitableForSeason a owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
     skos:definition "A objectproperty that links a garment to a color season, capturing the 'is suitable for season' relationship."@en .
 
+ifo:isSustainabilityFeatureOf a owl:ObjectProperty ;
+    rdfs:label "Is SustainabilityFeatureOf"@en ;
+    rdfs:comment "Inverse of hasSustainabilityFeature."@en ;
+    rdfs:domain ifo:SustainabilityFeature ;
+    rdfs:range ifo:Item ;
+    owl:inverseOf ifo:hasSustainabilityFeature .
+
 ifo:location01 a ifo:Location ;
-    rdfs:label "location example 1" ;
+    rdfs:label "location example 1"@en ;
     ifo:isLocationOf ifo:fashionShow01 .
 
 ifo:madeOfFabric a owl:ObjectProperty ;
     rdfs:label "made of fabric"@en ;
     rdfs:comment "Indicates the primary fabric used in a garment or accessory."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Garment or Accessory"@en ;
-            rdfs:comment "A garment or accessory concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Garment ifo:Accessory ) ;
-            skos:definition "A garment or accessory concept in the fashion domain."@en ] ;
+    rdfs:domain ifo:Garment ;
     rdfs:range ifo:Fabric ;
-    skos:definition "A objectproperty that links a garment or accessory to a fabric, capturing the 'made of fabric' relationship."@en .
+    owl:inverseOf ifo:isFabricOf .
 
 ifo:pattern01 a ifo:Pattern ;
-    rdfs:label "pattern example 1" .
-
-ifo:producedBy a owl:ObjectProperty ;
-    rdfs:label "produced by"@en ;
-    rdfs:comment "Associates a collection, garment or accessory with the brand that produced it."@en ;
-    rdfs:domain [ a owl:Class ;
-            rdfs:label "Collection, Garment or Accessory"@en ;
-            rdfs:comment "A collection, garment or accessory concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Collection ifo:Garment ifo:Accessory ) ;
-            skos:definition "A collection, garment or accessory concept in the fashion domain."@en ] ;
-    rdfs:range ifo:Brand ;
-    owl:inverseOf ifo:produces ;
-    skos:definition "A objectproperty that links a collection, garment or accessory to a brand, capturing the 'produced by' relationship."@en .
-
-ifo:produces a owl:ObjectProperty ;
-    rdfs:label "produces"@en ;
-    rdfs:comment "Inverse of producedBy."@en ;
-    rdfs:domain ifo:Brand ;
-    rdfs:range [ a owl:Class ;
-            rdfs:label "Collection, Garment or Accessory"@en ;
-            rdfs:comment "A collection, garment or accessory concept in the fashion domain."@en ;
-            owl:unionOf ( ifo:Collection ifo:Garment ifo:Accessory ) ;
-            skos:definition "A collection, garment or accessory concept in the fashion domain."@en ] ;
-    owl:inverseOf ifo:producedBy ;
-    skos:definition "A objectproperty that links a brand to a collection, garment or accessory, capturing the 'produces' relationship."@en .
+    rdfs:label "pattern example 1"@en .
 
 ifo:shoe01 a ifo:Garment,
         ifo:Shoe ;
-    rdfs:label "shoe example 1" ;
+    rdfs:label "shoe example 1"@en ;
     ifo:producedBy ifo:brand01 .
 
-ifo:showcasesCollection a owl:ObjectProperty ;
-    rdfs:label "Showcases collection"@en ;
-    rdfs:comment "Alias of PresentsCollection for backward compatibility"@en ;
-    owl:equivalentProperty ifo:presentsCollection .
-
 ifo:showroom01 a ifo:Showroom ;
-    rdfs:label "showroom example 1" ;
+    rdfs:label "showroom example 1"@en ;
     ifo:isLocationOf ifo:trunkShow01 .
 
 ifo:sustainabilityFeature01 a ifo:SustainabilityFeature ;
-    rdfs:label "sustainabilityFeature example 1" .
+    rdfs:label "sustainabilityFeature example 1"@en .
 
 ifo:trunkShow01 a ifo:TrunkShow ;
-    rdfs:label "trunkShow example 1" ;
+    rdfs:label "trunkShow example 1"@en ;
     ifo:hasLocation ifo:showroom01 ;
     ifo:presentsCollection ifo:collection02 .
 
@@ -582,7 +595,7 @@ ifo:FashionWeekShow a owl:Class ;
 
 ifo:accessory01 a ifo:Accessory,
         ifo:Garment ;
-    rdfs:label "accessory example 1" ;
+    rdfs:label "accessory example 1"@en ;
     ifo:belongsToCollection ifo:collection01 ;
     ifo:producedBy ifo:brand01 .
 
@@ -595,7 +608,7 @@ ifo:hasLocation a owl:ObjectProperty ;
     skos:definition "A objectproperty that links a fashion show to a location, capturing the 'has location' relationship."@en .
 
 ifo:model01 a ifo:Model ;
-    rdfs:label "model example 1" ;
+    rdfs:label "model example 1"@en ;
     ifo:walksInShow ifo:fashionShow01 ;
     ifo:wearsGarment ifo:garment01 .
 
@@ -607,13 +620,15 @@ ifo:presentsCollection a owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty ;
     skos:definition "A objectproperty that links a fashion show to a collection, capturing the 'presents collection' relationship."@en .
 
-xsd:gYear a rdfs:Datatype .
+ifo:showcasesCollection a owl:ObjectProperty ;
+    rdfs:label "Showcases collection"@en ;
+    rdfs:comment "Alias of PresentsCollection for backward compatibility"@en ;
+    rdfs:domain ifo:FashionShow ;
+    rdfs:range ifo:Collection ;
+    owl:equivalentProperty ifo:presentsCollection ;
+    owl:inverseOf ifo:isShowcasedAt .
 
-ifo:FitSpecification a owl:Class ;
-    rdfs:label "Fit specification"@en ;
-    rdfs:comment "Structured information describing the fit or silhouette of a garment (e.g. slim, oversized)."@en ;
-    rdfs:subClassOf ifo:SizeSpecification ;
-    skos:definition "A fit specification concept in the fashion domain."@en .
+xsd:gYear a rdfs:Datatype .
 
 ifo:Shoe a owl:Class ;
     rdfs:label "Shoe"@en ;
@@ -636,11 +651,6 @@ ifo:SizeSpecification a owl:Class ;
     rdfs:comment "Structured information describing the size of a garment (e.g. EU38, IT44)."@en ;
     skos:definition "A size specification concept in the fashion domain."@en .
 
-ifo:SustainabilityFeature a owl:Class ;
-    rdfs:label "Sustainability feature"@en ;
-    rdfs:comment "Characteristic related to the environmental or ethical sustainability of a fashion item."@en ;
-    skos:definition "A sustainability feature concept in the fashion domain."@en .
-
 ifo:belongsToCollection a owl:ObjectProperty ;
     rdfs:label "Belongs to collection"@en ;
     rdfs:comment "Relates a garment—or another fashion entity—to the collection it belongs to."@en ;
@@ -650,14 +660,14 @@ ifo:belongsToCollection a owl:ObjectProperty ;
     skos:definition "A objectproperty that links a garment to a collection, capturing the 'belongs to collection' relationship."@en .
 
 ifo:collection01 a ifo:Collection ;
-    rdfs:label "collection example 1" ;
+    rdfs:label "collection example 1"@en ;
     ifo:hasSuitableGarment ifo:garment01 ;
     ifo:includesAccessory ifo:accessory01 ;
     ifo:includesGarment ifo:garment01 ;
     ifo:isPresentedInShow ifo:fashionShow01 .
 
 ifo:fashionShow01 a ifo:FashionShow ;
-    rdfs:label "fashionShow example 1" ;
+    rdfs:label "fashionShow example 1"@en ;
     ifo:hasLocation ifo:location01 ;
     ifo:hasModel ifo:model01 ;
     ifo:presentsCollection ifo:collection01 .
@@ -677,12 +687,16 @@ ifo:Designer a owl:Class ;
         foaf:Person ;
     skos:definition "A designer is a type of http://xmlns.com/foaf/0.1/person in the fashion context."@en .
 
-ifo:Fabric a owl:Class ;
-    rdfs:label "Fabric"@en ;
-    rdfs:comment "Textile material used to construct garments and accessories."@en ;
-    owl:disjointWith ifo:FashionTrend,
-        ifo:Pattern ;
-    skos:definition "A fabric is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
+ifo:FitSpecification a owl:Class ;
+    rdfs:label "Fit specification"@en ;
+    rdfs:comment "Structured information describing the fit or silhouette of a garment (e.g. slim, oversized)."@en ;
+    rdfs:subClassOf ifo:SizeSpecification ;
+    skos:definition "A fit specification concept in the fashion domain."@en .
+
+ifo:SustainabilityFeature a owl:Class ;
+    rdfs:label "Sustainability feature"@en ;
+    rdfs:comment "Characteristic related to the environmental or ethical sustainability of a fashion item."@en ;
+    skos:definition "A sustainability feature concept in the fashion domain."@en .
 
 ifo:TrunkShow a owl:Class ;
     rdfs:label "Trunk show"@en ;
@@ -691,7 +705,7 @@ ifo:TrunkShow a owl:Class ;
     skos:definition "A trunk show is a type of event in the fashion context."@en .
 
 ifo:garment01 a ifo:Garment ;
-    rdfs:label "garment example 1" ;
+    rdfs:label "garment example 1"@en ;
     ifo:belongsToCollection ifo:collection01 ;
     ifo:hasFit ifo:fitSpecification01 ;
     ifo:hasPattern ifo:pattern01 ;
@@ -700,15 +714,15 @@ ifo:garment01 a ifo:Garment ;
     ifo:madeOfFabric ifo:fabric01 ;
     ifo:producedBy ifo:brand01 .
 
-ifo:Location a owl:Class ;
-    rdfs:label "Location"@en ;
-    rdfs:comment "A physical place such as a city, venue, or country where an event occurs."@en ;
-    rdfs:subClassOf <http://schema.org/Place>,
-        foaf:SpatialThing ;
-    skos:definition "A location concept in the fashion domain."@en .
+ifo:Fabric a owl:Class ;
+    rdfs:label "Fabric"@en ;
+    rdfs:comment "Textile material used to construct garments and accessories."@en ;
+    owl:disjointWith ifo:FashionTrend,
+        ifo:Pattern ;
+    skos:definition "A fabric is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
 
 ifo:brand01 a ifo:Brand ;
-    rdfs:label "brand example 1" ;
+    rdfs:label "brand example 1"@en ;
     ifo:hasDesigner ifo:designer01 ;
     ifo:produces ifo:accessory01,
         ifo:bag01,
@@ -721,6 +735,13 @@ ifo:FashionTrend a owl:Class ;
     owl:disjointWith ifo:Pattern ;
     skos:definition "A fashion trend is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
 
+ifo:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "A physical place such as a city, venue, or country where an event occurs."@en ;
+    rdfs:subClassOf <http://schema.org/Place>,
+        foaf:SpatialThing ;
+    skos:definition "A location concept in the fashion domain."@en .
+
 ifo:Model a owl:Class ;
     rdfs:label "Model"@en ;
     rdfs:comment "A person who wears garments to present them during a fashion show."@en ;
@@ -728,17 +749,24 @@ ifo:Model a owl:Class ;
         foaf:Person ;
     skos:definition "A model concept in the fashion domain."@en .
 
-ifo:Pattern a owl:Class ;
-    rdfs:label "Pattern"@en ;
-    rdfs:comment "Surface design or motif applied to fabric or garment."@en ;
-    skos:definition "A pattern is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
-
 ifo:Stylist a owl:Class ;
     rdfs:label "Stylist"@en ;
     rdfs:comment "A professional who creates, curates, or coordinates fashion looks and presentations."@en ;
     rdfs:subClassOf <http://schema.org/Person>,
         foaf:Person ;
     skos:definition "A stylist concept in the fashion domain."@en .
+
+ifo:Accessory a owl:Class ;
+    rdfs:label "Accessory"@en ;
+    rdfs:comment "A fashion item complementary to garments, such as jewellery, belts, hats or scarves."@en ;
+    rdfs:subClassOf <http://schema.org/Product>,
+        ifo:Garment ;
+    skos:definition "A accessory concept in the fashion domain."@en .
+
+ifo:Pattern a owl:Class ;
+    rdfs:label "Pattern"@en ;
+    rdfs:comment "Surface design or motif applied to fabric or garment."@en ;
+    skos:definition "A pattern is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
 
 ifo:Event a owl:Class ;
     rdfs:label "Event"@en ;
@@ -763,21 +791,6 @@ ifo:FashionShow a owl:Class ;
         ifo:Event ;
     skos:definition "A fashion show is a type of na35ae09b2218491e98575ba213cf8f74b28 in the fashion context."@en .
 
-ifo:Accessory a owl:Class ;
-    rdfs:label "Accessory"@en ;
-    rdfs:comment "A fashion item complementary to garments, such as jewellery, belts, hats or scarves."@en ;
-    rdfs:subClassOf <http://schema.org/Product>,
-        ifo:Garment ;
-    skos:definition "A accessory concept in the fashion domain."@en .
-
-ifo:ColorSeason a owl:Class ;
-    rdfs:label "Color season"@en ;
-    rdfs:comment "A color palette or scheme associated with a particular time of year or fashion season."@en ;
-    owl:disjointWith ifo:Fabric,
-        ifo:FashionTrend,
-        ifo:Pattern ;
-    skos:definition "A color season is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
-
 ifo:Collection a owl:Class ;
     rdfs:label "Collection"@en ;
     rdfs:comment "A set of garments designed and presented together as part of a fashion season."@en ;
@@ -792,16 +805,18 @@ ifo:Collection a owl:Class ;
             owl:onProperty ifo:hasSeason ] ;
     skos:definition "A collection is a type of na35ae09b2218491e98575ba213cf8f74b32 in the fashion context."@en .
 
+ifo:ColorSeason a owl:Class ;
+    rdfs:label "Color season"@en ;
+    rdfs:comment "A color palette or scheme associated with a particular time of year or fashion season."@en ;
+    owl:disjointWith ifo:Fabric,
+        ifo:FashionTrend,
+        ifo:Pattern ;
+    skos:definition "A color season is a type of http://www.w3.org/2004/02/skos/core#concept in the fashion context."@en .
+
 ifo:Garment a owl:Class ;
     rdfs:label "Garment"@en ;
     rdfs:comment "An individual piece of clothing or apparel item."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty ifo:hasSize ],
-        [ a owl:Restriction ;
-            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty ifo:madeOfFabric ],
-        [ a owl:Restriction ;
             owl:minCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty ifo:hasColor ],
         [ a owl:Restriction ;
@@ -810,6 +825,12 @@ ifo:Garment a owl:Class ;
         [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty ifo:hasFitSpecification ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty ifo:hasSize ],
+        [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty ifo:madeOfFabric ],
         <http://schema.org/Product> ;
     skos:definition "A garment is a type of na35ae09b2218491e98575ba213cf8f74b35 in the fashion context."@en .
 
