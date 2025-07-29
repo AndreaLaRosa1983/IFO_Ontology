@@ -816,3 +816,137 @@ ifo:Garment a owl:Class ;
             owl:onProperty ifo:hasColor ],
         <http://schema.org/Product> ;
     skos:definition "A garment is a type of na35ae09b2218491e98575ba213cf8f74b35 in the fashion context."@en .
+
+########## MOCK DATA SECTION (namespace ifot:) ##########
+@prefix ifo:  <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/> .
+@prefix ifot: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/test/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+###########  TEST (MOCK) INDIVIDUALS  ###########
+# Tutti gli URI di test usano il namespace 'ifot:' per facilitarne la rimozione.
+
+### Stylists ###
+ifot:Stylist_A a ifo:Stylist ; foaf:name "Test Stylist A" .
+ifot:Stylist_B a ifo:Stylist ; foaf:name "Test Stylist B" .
+ifot:Stylist_C a ifo:Stylist ; foaf:name "Test Stylist C" .
+ifot:Stylist_D a ifo:Stylist ; foaf:name "Test Stylist D" .
+
+### Models ###
+ifot:Model_1 a ifo:Model ; foaf:name "Test Model 1" ; ifo:ethnicity "Black" .
+ifot:Model_2 a ifo:Model ; foaf:name "Test Model 2" ; ifo:ethnicity "Black" .
+ifot:Model_3 a ifo:Model ; foaf:name "Test Model 3" ; ifo:ethnicity "Asian" .
+ifot:Model_4 a ifo:Model ; foaf:name "Test Model 4" ; ifo:ethnicity "Asian" .
+ifot:Model_5 a ifo:Model ; foaf:name "Test Model 5" ; ifo:ethnicity "White" .
+
+### Trunk Shows ###
+ifot:TrunkShow_SS2025 a ifo:TrunkShow ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:hasParticipant ifot:Stylist_A , ifot:Stylist_B .
+ifot:TrunkShow_FW2024 a ifo:TrunkShow ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:hasParticipant ifot:Stylist_C , ifot:Stylist_D .
+
+### Garments (Spring/Summer) ###
+ifot:Garment_SS1 a ifo:Garment ;
+    ifo:hasFit "slim" ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:hasPattern "animalier" ;
+    ifo:isSustainable true ;
+    ifo:designedBy ifot:Stylist_A ;
+    ifo:wornBy ifot:Model_1 .
+ifot:Garment_SS2 a ifo:Garment ;
+    ifo:hasFit "regular" ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:designedBy ifot:Stylist_B ;
+    ifo:wornBy ifot:Model_2 .
+ifot:Garment_SS3 a ifo:Garment ;
+    ifo:hasFit "oversize" ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:designedBy ifot:Stylist_A ;
+    ifo:isSustainable false ;
+    ifo:wornBy ifot:Model_3 .
+ifot:Garment_SS4 a ifo:Garment ;
+    ifo:hasFit "slim" ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:designedBy ifot:Stylist_C ;
+    ifo:wornBy ifot:Model_4 .
+
+### Garments (Fall/Winter) ###
+ifot:Garment_FW1 a ifo:Garment ;
+    ifo:hasFit "slim" ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:isSustainable true ;
+    ifo:designedBy ifot:Stylist_C ;
+    ifo:wornBy ifot:Model_1 .
+ifot:Garment_FW2 a ifo:Garment ;
+    ifo:hasFit "regular" ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:designedBy ifot:Stylist_D ;
+    ifo:hasPattern "plaid" ;
+    ifo:wornBy ifot:Model_5 .
+ifot:Garment_FW3 a ifo:Garment ;
+    ifo:hasFit "oversize" ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:designedBy ifot:Stylist_B ;
+    ifo:isSustainable true ;
+    ifo:wornBy ifot:Model_2 .
+ifot:Garment_FW4 a ifo:Garment ;
+    ifo:hasFit "slim" ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:designedBy ifot:Stylist_A ;
+    ifo:hasPattern "animalier" ;
+    ifo:wornBy ifot:Model_2 .
+
+### Footwear ###
+ifot:Sandal_1 a ifo:Footwear ;
+    ifo:hasType "Sandalo" ;
+    ifo:usedInSeason "Fall/Winter" ;
+    ifo:usedBy ifot:Stylist_B .
+ifot:Sandal_2 a ifo:Footwear ;
+    ifo:hasType "Sandalo" ;
+    ifo:usedInSeason "Fall/Winter" ;
+    ifo:usedBy ifot:Stylist_A .
+ifot:Boot_1 a ifo:Footwear ;
+    ifo:hasType "Boot" ;
+    ifo:usedInSeason "Fall/Winter" ;
+    ifo:usedBy ifot:Stylist_C .
+ifot:Heel_1 a ifo:Footwear ;
+    ifo:hasType "Heel" ;
+    ifo:usedInSeason "Spring/Summer" ;
+    ifo:usedBy ifot:Stylist_D .
+
+### Outfits ###
+ifot:Outfit_1 a ifo:Outfit ;
+    ifo:includesGarment ifot:Garment_SS1 , ifot:Garment_SS2 .
+ifot:Outfit_2 a ifo:Outfit ;
+    ifo:includesGarment ifot:Garment_FW1 , ifot:Sandal_1 .
+ifot:Outfit_3 a ifo:Outfit ;
+    ifo:includesGarment ifot:Garment_FW3 .
+
+### Model Jobs (per stagione) ###
+ifot:ModelJob_1 a ifo:ModelJob ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:involvesModel ifot:Model_1 ;
+    ifo:involvesStylist ifot:Stylist_A .
+ifot:ModelJob_2 a ifo:ModelJob ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:involvesModel ifot:Model_1 ;
+    ifo:involvesStylist ifot:Stylist_B .
+ifot:ModelJob_3 a ifo:ModelJob ;
+    ifo:hasSeason "Spring/Summer" ;
+    ifo:involvesModel ifot:Model_1 ;
+    ifo:involvesStylist ifot:Stylist_C .
+ifot:ModelJob_4 a ifo:ModelJob ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:involvesModel ifot:Model_2 ;
+    ifo:involvesStylist ifot:Stylist_A .
+ifot:ModelJob_5 a ifo:ModelJob ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:involvesModel ifot:Model_3 ;
+    ifo:involvesStylist ifot:Stylist_D .
+ifot:ModelJob_6 a ifo:ModelJob ;
+    ifo:hasSeason "Fall/Winter" ;
+    ifo:involvesModel ifot:Model_3 ;
+    ifo:involvesStylist ifot:Stylist_B .
+########## END MOCK DATA SECTION ##########

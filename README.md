@@ -1,64 +1,66 @@
-# IFO Ontology – README
+# IFO – Italian Fashion Ontology  
+**Version 1.1 – July 2025**  
+Ontology IRI: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO>
 
-> *Italian Fashion Ontology (IFO)*  •  Version 1.0  •  July 2025
->
-> **Ontology IRI**: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO>
->
-> Maintainers: *Marica R.* and *Andrea L. R.*  •  Contact: <andrea.lr@example.org>
+Maintainers: *Marica R.* & *Andrea L. R.*  ·  Contact: <andrea.lr@example.org>
 
 ---
 
-## 1  Project overview
-The IFO ontology models the **fashion domain** with a focus on items (bags, shoes, accessories), the people who design and wear them (models, stylists, designers), and events or themes relevant to fashion shows. It is intended for coursework in the *Web Semantico* class (Università di Bologna – Cesena) but can serve as a lightweight vocabulary for research prototypes and knowledge‑graph demos.
+## 1  Project overview
+The **Italian Fashion Ontology (IFO)** models the contemporary fashion domain, with classes for garments and accessories, the people who create and wear them, and the shows, seasons and collections in which they appear. It ships with a small mock dataset (`ifot:` namespace) for coursework and demo purposes.
 
 ---
 
-## 2  Namespaces
+## 2  Namespaces
 ```turtle
-@prefix ifo:   <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#> .
+@prefix ifo:   <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/> .
+@prefix ifot:  <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/test/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct:   <http://purl.org/dc/terms/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 ```
 
-The ontology **imports** FOAF and SKOS via `owl:imports` so that reasoners can pull axioms automatically.
+---
+
+## 3  Module statistics *(current)*
+| Metric | Count |
+|--------|-------|
+| RDF triples | **802** |
+| OWL / RDFS classes | **27** |
+| Object properties | **41** |
+| Datatype properties | **12** |
+| Individuals (A‑Box) | **108** |
 
 ---
 
-## 3  Module statistics *(after refactor)*
-- **Triples**: ≈ 740
-- **Classes**: 24
-- **Object properties**: 11
-- **Datatype properties**: 6
-- **Individuals (A‑Box)**: 18 sample instances (for demonstration)
-
----
-
-## 4  Core classes (T‑Box)
+## 4  Core classes (T‑Box)
 | Class | Description |
 |-------|-------------|
-| `ifo:FashionItem` | Abstract root class for tangible products. |
-| `ifo:Bag`, `ifo:Shoe`, `ifo:Accessory`, `ifo:Gown`, … | Main subclasses of `ifo:FashionItem`. |
-| `ifo:Person` *(≡ foaf:Person)* | Top‑level human entity. |
-| `ifo:Model`, `ifo:Stylist`, `ifo:Designer` | **Subclasses** of `foaf:Person`. |
-| `ifo:FashionShow` | Event where items are presented. |
-| `ifo:Theme`, `ifo:Material` | Controlled vocabulary anchors (optionally link to SKOS concepts). |
+| `ifo:Garment` | Root class for wearable items (bags, shoes, gowns, …). |
+| `ifo:Bag`, `ifo:Shoe`, `ifo:Accessory`, `ifo:Outfit` | Main garment subclasses. |
+| `ifo:Model`, `ifo:Stylist`, `ifo:Designer` | People subclasses imported from **FOAF**. |
+| `ifo:FashionShow`, `ifo:TrunkShow` | Events where collections are presented. |
+| `ifo:Pattern`, `ifo:Collection`, `ifo:Location` | Contextual concepts used as objects of properties. |
+
+*(All garment subclasses are mutually non‑disjoint to reflect real‑world overlap.)*
 
 ---
 
-## 5  Key object properties
-| Property | Domain ⇒ Range | Notes |
-|----------|----------------|-------|
-| `ifo:designedBy` | `ifo:FashionItem` ⇒ `ifo:Designer` | Functional. |
-| `ifo:wornBy` | `ifo:FashionItem` ⇒ `ifo:Model` | Inverse of `ifo:wears`. |
-| `ifo:wears` | `ifo:Person` ⇒ `ifo:FashionItem` | — |
-| `ifo:featuredIn` | `ifo:FashionItem` ⇒ `ifo:FashionShow` | — |
-| `ifo:hasTheme` | `ifo:FashionShow` ⇒ `ifo:Theme` | Range can be SKOS concept. |
+## 5  Key object properties
+| Property | Domain ⇒ Range | Inverse |
+|----------|----------------|---------|
+| `ifo:hasDesigner` | `ifo:Garment` ⇒ `ifo:Designer` | `ifo:isDesignerOf` |
+| `ifo:hasModel` | `ifo:Garment` ⇒ `ifo:Model` | `ifo:isModelOf` |
+| `ifo:hasPattern` | `ifo:Garment` ⇒ `ifo:Pattern` | — |
+| `ifo:hasSeason` | `ifo:Collection`/`ifo:Garment` ⇒ `xsd:string` | — |
+| `ifo:hasFit` | `ifo:Garment` ⇒ `xsd:string` | — |
+| `ifo:hasLocation` | `ifo:FashionShow` ⇒ `ifo:Location` | `ifo:isLocationOf` |
+| `ifo:hasCollection` | `ifo:FashionShow` ⇒ `ifo:Collection` | `ifo:isCollectionOf` |
 
 ---
 
-## 6  Key datatype properties
+## 6  Key datatype properties
 | Property | Range | Example |
 |----------|-------|---------|
 | `ifo:itemName` | `xsd:string` | "Leather Mini‑Bag" |
@@ -67,75 +69,122 @@ The ontology **imports** FOAF and SKOS via `owl:imports` so that reasoners can p
 
 ---
 
-## 7  Alignment to external vocabularies
-- **FOAF**
-  - `ifo:Model`, `ifo:Stylist`, `ifo:Designer` `rdfs:subClassOf foaf:Person`.
-  - Re‑used FOAF’s datatype properties `foaf:firstName`, `foaf:lastName`, etc.
-- **SKOS**
-  - Themes and materials *may* be encoded as `skos:Concept` individuals inside `ifo:FashionConceptScheme`.
+## 7  Alignment to external vocabularies
+* **FOAF** – `ifo:Model`, `ifo:Stylist`, `ifo:Designer` are subclasses of `foaf:Person`; FOAF name and image properties are reused.
+* **SKOS** – `ifo:Pattern`, `ifo:CollectionSeason` and materials can be encoded as `skos:Concept` individuals to support multilingual labels.
 
 ---
 
-## 8  Modeling decisions
-1. **Class vs Concept** – Fashion items remain OWL classes to allow extension by subclasses (e.g. `EveningBag`). Conceptual tagging (themes, materials) is delegated to SKOS.
-2. **No duplicate URIs** – Lower‑case duplicates removed; all classes in UpperCamelCase.
-3. **Open‑world assumption** – No disjointness axioms among subclasses; fashion items can overlap in reality.
+## 8  Modeling decisions
+1. **Namespaced inverses** – Most binary relations follow the `hasX` / `isXOf` convention to aid query readability.
+2. **Open‑world** – No disjointness axioms among garment subclasses; the same item may belong to multiple categories.
+3. **Season strings** – Values like "Spring/Summer" or "Fall/Winter" are kept as plain literals for simplicity; align to a SKOS concept scheme in production.
+4. **Mock data** – Synthetic individuals live in the separate `ifot:` namespace so they can be purged easily.
 
 ---
 
-## 9  Reasoning & validation steps
-1. Load `ifo_ontology_corrected.ttl` in Protégé.
-2. Ensure internet access for `owl:imports`.
-3. Run **HermiT** → *Ontology is consistent*.
-4. Verify inferred hierarchy: `ifo:Model` under `foaf:Person`, etc.
-
-*(Screenshot of HermiT results can be included in the project report.)*
+## 9  Reasoning & validation steps
+1. Load `ifo_ontology_with_mock.ttl` in **Protégé**.
+2. Resolve `owl:imports` for FOAF and SKOS.
+3. Run a DL reasoner (e.g. **HermiT**): ontology is **consistent**.
+4. Inspect inferred hierarchy (e.g. `ifo:Model` ⊑ `foaf:Person`).
 
 ---
 
-## 10  Example SPARQL queries
+## 10  SPARQL examples *(mock dataset)*
+> The queries below target the `ifot:` dataset shipped with the ontology. Replace uppercase placeholders when running on real data.
+
 ```sparql
-# Q1 – List all fashion items designed by "Franca Rossi"
-PREFIX ifo: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-SELECT ?item ?name WHERE {
-  ?designer foaf:firstName "Franca" ;
-            foaf:lastName  "Rossi" .
-  ?item ifo:designedBy ?designer ;
-        ifo:itemName ?name .
+PREFIX ifo:  <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/>
+PREFIX ifot: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/test/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+```
+
+### Q1 – Designers who created a garment with a given fit in Spring/Summer
+```sparql
+SELECT (COUNT(DISTINCT ?designer) AS ?numDesigners)
+WHERE {
+  ?g a ifo:Garment ;
+     ifo:hasFit "VALUE_FIT" ;
+     ifo:hasSeason "Spring/Summer" ;
+     ifo:hasDesigner ?designer .
 }
 ```
 
+### Q2 – Stylists at a trunk show for a season who presented ≥1 sustainable garment
 ```sparql
-# Q2 – Retrieve every person that wears at least one bag
-PREFIX ifo: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#>
-SELECT DISTINCT ?person WHERE {
-  ?person ifo:wears ?bag .
-  ?bag    a ifo:Bag .
+SELECT (COUNT(DISTINCT ?stylist) AS ?numStylists)
+WHERE {
+  ?show a ifo:TrunkShow ;
+        ifo:hasSeason "VALUE_SEASON" ;
+        ifo:hasStylist ?stylist .
+  ?g a ifo:Garment ;
+     ifo:hasDesigner ?stylist ;
+     ifo:hasSustainabilityFeature ?feature .
 }
 ```
 
+### Q3 – Models who worked with >2 stylists in a season
 ```sparql
-# Q3 – Upcoming fashion shows with a "Sustainability" theme
-PREFIX ifo: <http://www.semanticweb.org/andrea/ontologies/2025/5/IFO#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-SELECT ?show ?date WHERE {
-  ?show a ifo:FashionShow ;
-        ifo:hasTheme ifo:Sustainability ;
-        ifo:showDate ?date .
-  FILTER(?date > xsd:date("2025-07-22"))
+SELECT ?model (COUNT(DISTINCT ?stylist) AS ?numStylists)
+WHERE {
+  ?event a ifo:FashionShow ;
+         ifo:hasSeason "VALUE_SEASON" ;
+         ifo:hasModel ?model ;
+         ifo:hasStylist ?stylist .
 }
-ORDER BY ?date
+GROUP BY ?model
+HAVING (COUNT(DISTINCT ?stylist) > 2)
+```
+
+### Q4 – All garments linked to a specific outfit
+```sparql
+SELECT ?garment
+WHERE {
+  <OUTFIT_URI>  ifo:includesGarment ?garment .
+}
+```
+
+### Q5 – Occurrences of animal‑print garments worn by Black models
+```sparql
+SELECT (COUNT(*) AS ?occurrences)
+WHERE {
+  ?g a ifo:Garment ;
+     ifo:hasPattern "animal print" ;
+     ifo:hasModel ?model .
+  ?model a ifo:Model ;
+         foaf:gender "Female" ;   # if gender stored
+         ifo:ethnicity "Black" .   # custom literal or SKOS concept
+}
+```
+
+### Q6 – Stylists who used sandals during Autumn/Winter
+```sparql
+SELECT (COUNT(DISTINCT ?stylist) AS ?numStylists)
+WHERE {
+  ?shoe a ifo:Shoe ;
+        ifo:hasType "Sandal" ;
+        ifo:hasSeason "Autumn/Winter" ;
+        ifo:hasStylist ?stylist .
+}
 ```
 
 ---
 
-## 11  How to cite
-If you use the IFO ontology in academic work, please cite:
-> Marica R. & Andrea L. R. (2025). *IFO: Italian Fashion Ontology v1.0*. Unpublished class project, University of Bologna – Cesena.
+## 11  Removing mock data
+```sparql
+DELETE WHERE {
+  ?s ?p ?o
+  FILTER(STRSTARTS(STR(?s), "http://www.semanticweb.org/andrea/ontologies/2025/5/IFO/test/"))
+}
+```
 
 ---
 
-## 12  License
-© 2025 Marica R. & Andrea L. R. – Released under **CC BY 4.0**.
+## 12  How to cite
+> Marica R. & Andrea L. R. (2025). *IFO: Italian Fashion Ontology v1.1*. Class project, University of Bologna – Cesena.
 
+---
+
+## 13  License
+© 2025 Marica R. & Andrea L. R. – Released under **CC BY 4.0**.
