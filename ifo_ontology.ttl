@@ -51,7 +51,7 @@
         <http://schema.org/version/latest/schema.ttl>,
         skos:,
         foaf: ;
-    owl:versionInfo "v.1.0.0" .
+    owl:versionInfo "v.1.1.0" .
 
 ifo:FW a ifo:FashionSeason ;
     rdfs:label "Fall/Winter"@en .
@@ -950,3 +950,122 @@ ifot:ModelJob_6 a ifo:ModelJob ;
     ifo:involvesModel ifot:Model_3 ;
     ifo:involvesStylist ifot:Stylist_B .
 ########## END MOCK DATA SECTION ##########
+
+#################################################################
+# SKOS CONCEPT SCHEMES ADDED 2025-07-30
+# ---------------------------------------------------------------
+# These schemes (Season, Pattern, Fit) are kept separate from the
+# core TBox so they can be maintained or imported independently.
+#################################################################
+
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ifo:  <https://example.org/ifo#> .
+@prefix wd:   <http://www.wikidata.org/entity/> .
+
+### ---- Season Concept Scheme ----
+
+ifo:SeasonScheme a skos:ConceptScheme ;
+    skos:prefLabel "IFO fashion seasons"@en ;
+    skos:prefLabel "Stagioni moda IFO"@it ;
+    skos:creator   "IFO Ontology Team" ;
+    skos:hasTopConcept ifo:SS , ifo:AW , ifo:Resort , ifo:PreFall .
+
+ifo:SS a skos:Concept ;
+    skos:inScheme ifo:SeasonScheme ;
+    skos:prefLabel "Spring/Summer"@en , "Primavera/Estate"@it , "Printemps/Été"@fr ;
+    skos:altLabel  "SS"@en , "PE"@it ;
+    skos:notation  "SS" ;
+    skos:exactMatch wd:Q1047689 .
+
+ifo:AW a skos:Concept ;
+    skos:inScheme ifo:SeasonScheme ;
+    skos:prefLabel "Autumn/Winter"@en , "Autunno/Inverno"@it , "Automne/Hiver"@fr ;
+    skos:altLabel  "AW"@en , "AI"@it ;
+    skos:notation  "AW" ;
+    skos:exactMatch wd:Q18235236 .
+
+ifo:Resort a skos:Concept ;
+    skos:inScheme ifo:SeasonScheme ;
+    skos:prefLabel "Resort/Cruise"@en , "Resort/Crociera"@it ;
+    skos:altLabel  "Cruise"@en ;
+    skos:notation  "RS" .
+
+ifo:PreFall a skos:Concept ;
+    skos:inScheme ifo:SeasonScheme ;
+    skos:prefLabel "Pre‑Fall"@en , "Pre‑Autunno"@it ;
+    skos:notation  "PF" .
+
+### ---- Pattern Concept Scheme ----
+
+ifo:PatternScheme a skos:ConceptScheme ;
+    skos:prefLabel "Garment patterns"@en ;
+    skos:prefLabel "Pattern di capi"@it ;
+    skos:creator   "IFO Ontology Team" ;
+    skos:hasTopConcept ifo:Geom , ifo:Figurative , ifo:Abstract , ifo:Solid .
+
+ifo:Geom a skos:Concept ; skos:prefLabel "Geometric"@en , "Geometrico"@it ; skos:inScheme ifo:PatternScheme .
+ifo:Stripes a skos:Concept ;
+    skos:broader ifo:Geom ;
+    skos:prefLabel "Stripes"@en , "Righe"@it , "Rayures"@fr ;
+    skos:altLabel "Striped"@en .
+ifo:Houndstooth a skos:Concept ;
+    skos:broader ifo:Geom ;
+    skos:prefLabel "Houndstooth"@en , "Pied de poule"@it , "Pied‑de‑poule"@fr .
+
+ifo:Figurative a skos:Concept ; skos:prefLabel "Figurative"@en , "Figurativo"@it ; skos:inScheme ifo:PatternScheme .
+ifo:Floral a skos:Concept ; skos:broader ifo:Figurative ; skos:prefLabel "Floral"@en , "Floreale"@it .
+ifo:AnimalPrint a skos:Concept ; skos:broader ifo:Figurative ; skos:prefLabel "Animal print"@en .
+
+ifo:Abstract a skos:Concept ; skos:prefLabel "Abstract"@en ; skos:inScheme ifo:PatternScheme .
+
+ifo:Solid a skos:Concept ; skos:prefLabel "Solid/Plain"@en , "Tinta unita"@it ; skos:inScheme ifo:PatternScheme .
+
+### ---- Fit Concept Scheme ----
+
+ifo:FitScheme a skos:ConceptScheme ;
+    skos:prefLabel "Garment fit types"@en ;
+    skos:prefLabel "Vestibilità capi"@it ;
+    skos:creator   "IFO Ontology Team" .
+
+ifo:Regular  a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Regular"@en , "Regular"@it ; skos:notation "RG" .
+ifo:Slim     a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Slim"@en , "Slim"@it ; skos:notation "SL" .
+ifo:Skinny   a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Skinny"@en , "Skinny"@it ; skos:notation "SK" .
+ifo:Oversized a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Oversized"@en , "Oversize"@it ; skos:altLabel "OS"@en ; skos:notation "OS" .
+ifo:Relaxed  a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Relaxed"@en , "Relaxed"@it ; skos:notation "RX" .
+ifo:Tapered  a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Tapered"@en , "Affusolato"@it ; skos:notation "TP" .
+ifo:Cropped  a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Cropped"@en , "Corto"@it ; skos:notation "CR" .
+ifo:HighWaist a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "High‑waist"@en , "Vita alta"@it ; skos:altLabel "High rise"@en ; skos:notation "HW" .
+ifo:LowRise  a skos:Concept ; skos:inScheme ifo:FitScheme ; skos:prefLabel "Low‑rise"@en , "Vita bassa"@it ; skos:notation "LR" .
+
+#################################################################
+# Object properties aligned to SKOS Concept Schemes (2025-07-30)
+#################################################################
+
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ifo:  <https://example.org/ifo#> .
+
+### Property: ifo:season
+ifo:season a owl:ObjectProperty ;
+    rdfs:label "season"@en , "stagione"@it ;
+    rdfs:comment "Relates a garment, collection, or fashion show to its fashion season. Values must be concepts in ifo:SeasonScheme."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range  skos:Concept ;
+    skos:scopeNote "Choose a concept in ifo:SeasonScheme (SS, AW, Resort, PreFall)."@en .
+
+### Property: ifo:pattern
+ifo:pattern a owl:ObjectProperty ;
+    rdfs:label "pattern"@en , "pattern"@it ;
+    rdfs:comment "Relates a garment to its fabric or print pattern. Values must be concepts in ifo:PatternScheme."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range  skos:Concept ;
+    skos:scopeNote "Use a concept from ifo:PatternScheme (Stripes, Floral, Houndstooth...). "@en .
+
+### Property: ifo:fit
+ifo:fit a owl:ObjectProperty ;
+    rdfs:label "fit"@en , "vestibilità"@it ;
+    rdfs:comment "Relates a garment to its intended fit silhouette. Values must be concepts in ifo:FitScheme."@en ;
+    rdfs:domain ifo:Garment ;
+    rdfs:range  skos:Concept ;
+    skos:scopeNote "Use a concept from ifo:FitScheme (Oversized, Slim, Regular...). "@en .
